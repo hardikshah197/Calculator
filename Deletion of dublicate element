@@ -1,0 +1,31 @@
+public class Deldup{
+public static void main(String[] args) {
+int a[]= new Int[10],i,j,k=0,b[10],n,c;
+Scanner s = new Scanner(System.in);
+System.out.println("Enter size");
+n=s.nextInt();
+System.out.println("Enter element");
+for(i=0;i<n;i++)
+a[i]=s.nextInt();
+
+for(i=0;i<n;i++)
+{
+c=0;
+for(j=0;j<n;j++)
+{
+if(a[i]==a[j])
+c++;
+
+if(c==1)
+{
+b[k]=a[i];
+k++;
+}
+}
+}
+for(i=0;i<k;i++)
+System.out.println(c[i]);
+}
+}
+
+
