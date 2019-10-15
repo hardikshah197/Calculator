@@ -1,0 +1,90 @@
+\*******************************************************************************/
+import java.util.*;
+import java.util.Scanner;
+public class Main 
+{
+    String bikes[] = { "b01", "b02", "b03", "b04"};
+    String status[] = { "free", "free", "free", "free"};
+    int bno;
+    int phno;
+    String name;
+    int days;
+    int charges;
+    Scanner y = new Scanner(System.in);
+    public void input()
+    {
+        System.out.println("Enter customer's Detail");
+        System.out.println("Enter name");
+        name=y.next();
+        System.out.println("Enter phone number");
+        phno=y.nextInt();
+        System.out.println("Enter no of days to be rented bike");
+        days = y.nextInt();
+        int c=0,i;
+        for(i=0;i<4;i++)
+        {
+            if(status[i].equals("free"))
+            {
+                c=1;
+                break;
+            }
+        }
+        if(c==1)
+        {
+            bno = (i+1);
+            status[i]="allocate";
+        }
+        else
+        System.out.println("No Bike is Available");
+    }
+    public void returnbike()
+    {
+        System.out.println("Enter bike no");
+        bno = y.nextInt();
+        int j;
+        for(j = 0;j < 4;j++)
+            if(bno==(j+1))
+                break;
+        status[j] = "free";
+    }
+    public void compute()
+    {
+        if(days<=5)
+        charges = days*500;
+        else if(days<=10)
+        charges=2500+((days-5)*400);
+        else
+        charges=4500+((days-10)*200);
+    }
+    public void display()A
+    {
+        System.out.println("Bike no.\tPhone no.\tName\tNo. of Days\t\tCharges\t Status");
+        System.out.println(bno+"\t\t"+phno+"\t\t"+name+"\t\t"+days+"\t\t"+charges+"\t"+status[bno-1]);
+    }
+    public static void main(String[] args)
+    {
+        Main mb = new Main();
+        Scanner y = new Scanner(System.in);
+        while(true) {
+        System.out.println("Menu");
+        System.out.println("1. Reserve Bike");
+        System.out.println("2. Display All");
+        System.out.println("3. Return Bike");
+        System.out.println("4. Exit");
+        int ch=y.nextInt();
+        switch(ch)
+        {
+            case 1 : mb.input();
+            break;
+            case 2 : mb.compute();
+                mb.display();
+            break;
+            case 3 : mb.returnbike();
+            break;
+            case 4 : System.exit(0);
+            default : System.out.println("Wrong Choice entered");
+        }
+        }
+    }
+}
+\*******************************************************************************/
